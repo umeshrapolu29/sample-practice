@@ -6,22 +6,26 @@
       <div class="card-body">
         <h3 class="text-center title h3style">Registration Form</h3>
         <hr class="line">
-        <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form class="form" [formGroup]="form" >
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <label> First Name:</label>
-                <input type="text" class="form-control"  formControlName="firstname" name="firstname"  [ngClass]="{ 'is-invalid': submitted || f.firstName.errors }"   >
-                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
-              </div>
+                <input type="text" class="form-control"  formControlName="firstname" name="firstname" [ngClass]="{ 'is-invalid': form.get('firstname').touched && form.get('firstname').invalid  }"  >
+                 <div class="invalid-feedback">
+                  <div >First Name is required</div>
+              </div> 
               </div>
               </div>
       
             <div class="col">
               <div class="form-group">
                 <label for="pwd"> Last Name:</label>
-                <input type="text" class="form-control" name="lasttname" formControlName="lastname" >
+                <input type="text" class="form-control" name="lasttname" formControlName="lastname" [ngClass]="{'is-invalid':form.get('lastname').touched && form.get('lastname').invalid} " >
+             <div  class="invalid-feedback">
+              <div *ngIf="form.get('lastname').errors.required">lastname is required</div>
+              <div *ngIf="form.get('lastname').errors.minLength">minlength</div>
+             </div>
               </div>
             </div>
           </div>
@@ -29,7 +33,11 @@
             <div class="col">
               <div class="form-group">
                 <label> Email:</label>
-                <input type="text" class="form-control" name="email" formControlName="email"  >
+                <input type="text" class="form-control" name="email" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched &&form.get('email').invalid}" >
+                <div *ngIf="{'is-invalid':form.get('email').touched &&form.get('email').invalid}" class="invalid-feedback">
+                  <div *ngIf="form.get('email').errors.required">Email is required</div>
+                  <div *ngIf="form.get('email').errors.email">Enter valid Email id</div>
+                </div>
               </div>
             </div>
             <div class="col">

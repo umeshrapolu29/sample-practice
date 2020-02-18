@@ -1,6 +1,6 @@
 import { Component, OnInit,OnDestroy ,AfterViewInit,AfterContentInit } from '@angular/core';
 import{MyserviceService} from '../myservice.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -20,12 +20,22 @@ export class RegisterComponent implements OnInit {
   console.log(this.store)
 
 }
+emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+phoneNumber = "^(\+\d{1,3}[- ]?)?\d{10}$";
+form=new FormGroup({
+  firstname: new FormControl('',Validators.required),
+  lastname:new FormControl('',[Validators.required,Validators.minLength(6)]),
+  email:new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)])
+    
+})
 get f() { return this.registerForm.controls; }
 ngOnInit(){
-  this.registerForm=this.formBuilder.group({
-    firstname:['',Validators.required],
-    lastname:['',Validators.required]
-  })
+  // this.registerForm=this.formBuilder.group({
+  //   firstname:['',Validators.required],
+  //   lastname:['',Validators.required]
+  // })
+
+
 
 
 }
