@@ -1,0 +1,31 @@
+.container-fluid{
+   background-image: url('/src/assets/images/images/reg-img.png'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 620px;
+}
+.RegistrationImg{
+  margin-left: 50px;
+}
+.container{
+  padding: 50px;
+}
+.form{
+  margin-top: 50px;
+}
+.alg{
+  margin-left: 517px;
+}
+.h3style{
+  color:#3e2e7b;
+}
+.form-group label{
+  color: black;
+} 
+.title{
+  font-family: 'Berkshire Swash', cursive;
+}
+.line{
+  border:1px solid #8ec9e0;
+}

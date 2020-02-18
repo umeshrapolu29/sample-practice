@@ -1,0 +1,62 @@
+
+<section class="container-fluid">
+  <div class="container">
+    <div class="row">
+    <div class="col-6 card line">
+      <div class="card-body">
+        <h3 class="text-center title h3style">Registration Form</h3>
+        <hr class="line">
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label> First Name:</label>
+                <input type="text" class="form-control"  formControlName="firstname" name="firstname"  [ngClass]="{ 'is-invalid': submitted || f.firstName.errors }"   >
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+              </div>
+              </div>
+      
+            <div class="col">
+              <div class="form-group">
+                <label for="pwd"> Last Name:</label>
+                <input type="text" class="form-control" name="lasttname" formControlName="lastname" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label> Email:</label>
+                <input type="text" class="form-control" name="email" formControlName="email"  >
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label> Phone:</label>
+                <input type="text" class="form-control" name="Phone" formControlName="phone" >
+              </div>
+            </div>
+          </div>
+        
+          <!-- <div class="">
+            <button type="button" class="btn btn-success  mr-2" (click)="register()">Submit</button>
+            <button type="button" class="btn btn-primary  " [routerLink]="['/login']">Login</button>
+          </div> -->
+  
+          <button type="submit" (click)="register()"
+          routerLinkActive="router-link-active mr-2" mat-stroked-button>Submit</button>
+          <button type="button" class="ml-4" [routerLink]="['/login']" mat-stroked-button color="primary">Login</button>
+  
+        </form>
+     
+      </div>
+    </div>
+  
+    <div class="col-6">
+      <img src="../../assets/images/images/reg-img.png" height="450" class="RegistrationImg" />
+    </div>
+  </div>
+  </div>
+  </section>
