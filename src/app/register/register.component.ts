@@ -21,11 +21,12 @@ export class RegisterComponent implements OnInit {
 
 }
 emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-phoneNumber = "^(\+\d{1,3}[- ]?)?\d{10}$";
+// phoneNumber = "^(\+\d{1,3}[- ]?)?\d{10}$";
 form=new FormGroup({
   firstname: new FormControl('',Validators.required),
   lastname:new FormControl('',[Validators.required,Validators.minLength(6)]),
-  email:new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)])
+  email:new FormControl('',[Validators.required,Validators.pattern(this.emailPattern)]),
+  phone:new FormControl('',[Validators.required,Validators.minLength(10)])
     
 })
 get f() { return this.registerForm.controls; }

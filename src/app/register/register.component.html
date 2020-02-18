@@ -36,14 +36,23 @@
                 <input type="text" class="form-control" name="email" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched &&form.get('email').invalid}" >
                 <div *ngIf="{'is-invalid':form.get('email').touched &&form.get('email').invalid}" class="invalid-feedback">
                   <div *ngIf="form.get('email').errors.required">Email is required</div>
-                  <div *ngIf="form.get('email').errors.email">Enter valid Email id</div>
+                  <div *ngIf="form.get('email').errors.pattern">Enter valid Email id</div>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label> Phone:</label>
-                <input type="text" class="form-control" name="Phone" formControlName="phone" >
+                <input type="text" class="form-control" name="phone" formControlName="phone" [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}" >
+                <div *ngIf="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}">
+                  <div *ngIf="form.get('phone').errors.required">phone number required
+
+                  </div>
+                  <div *ngIf="form.get('phone').errors.minLength">enter valid number
+
+                    </div>
+
+                </div>
               </div>
             </div>
           </div>
